@@ -4,21 +4,9 @@ By: "Siddhesh Sreedar"
 output: github_document
 ---
 
-```{r}
-library(rmarkdown)
-```
-
-```{r setup, include = FALSE, cache = FALSE}
-knitr::opts_chunk$set(error = TRUE)
-```
 
 ```{r global_options}
 knitr::opts_chunk$set(fig.path='Figs/')
-```
-
-```{r}
-library(knitr)
-opts_chunk$set(dev="png")
 ```
 
 ```{r message=FALSE, warning=FALSE}
