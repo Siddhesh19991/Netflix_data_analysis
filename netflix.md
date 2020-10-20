@@ -2,19 +2,6 @@ Netflix\_analysis
 ================
 
 ``` r
-library(rmarkdown)
-```
-
-``` r
-knitr::opts_chunk$set(fig.path='Figs/')
-```
-
-``` r
-library(knitr)
-opts_chunk$set(dev="png")
-```
-
-``` r
 library(dplyr)
 library(tidyr)
 ```
@@ -60,7 +47,7 @@ binge<-binge%>%top_n(10)
 ggplot(binge,aes(total,Title))+geom_bar(stat = "identity")
 ```
 
-![](Figs/unnamed-chunk-7-1.png)<!-- -->
+![](Figs/unnamed-chunk-5-1.png)<!-- -->
 
 So the most binged show was “big mouth” dated on 6/10/2018.
 
@@ -71,7 +58,7 @@ view<-view%>%top_n(10)
 ggplot(view,aes(total,Title))+geom_bar(stat = "identity")
 ```
 
-![](Figs/unnamed-chunk-8-1.png)<!-- -->
+![](Figs/unnamed-chunk-6-1.png)<!-- -->
 
 most viewed show is “Friends”.^
 
@@ -101,7 +88,7 @@ shows and movies.
 ggplot(day_analysis,aes(Date,n))+geom_bar(stat = "identity")
 ```
 
-![](Figs/unnamed-chunk-10-1.png)<!-- -->
+![](Figs/unnamed-chunk-8-1.png)<!-- -->
 
 we see that the amount of netflix shows/movies consumed has increased
 over the years.^
@@ -119,7 +106,7 @@ day_analysis$month<-ifelse(a==1,"jan",ifelse(a==2,"feb",ifelse(a==3,"mar",ifelse
 ggplot(day_analysis,aes(week,day))+geom_tile(aes(fill=n))+facet_grid(year~month)+scale_fill_gradient(low = "#FFD000", high = "#FF1919")
 ```
 
-![](Figs/unnamed-chunk-11-1.png)<!-- -->
+![](Figs/unnamed-chunk-9-1.png)<!-- -->
 
 which day of the week is my consumption the highest:
 
@@ -127,7 +114,7 @@ which day of the week is my consumption the highest:
 ggplot(day_analysis,aes(day,n))+coord_polar()+ geom_col(fill = "#5b59d6")
 ```
 
-![](Figs/unnamed-chunk-12-1.png)<!-- -->
+![](Figs/unnamed-chunk-10-1.png)<!-- -->
 
 thursdays is the most^
 
@@ -137,7 +124,7 @@ which month of the year is my consumption the highest
 ggplot(day_analysis,aes(month,n))+coord_polar()+ geom_col(fill = "#5b59d6")
 ```
 
-![](Figs/unnamed-chunk-13-1.png)<!-- -->
+![](Figs/unnamed-chunk-11-1.png)<!-- -->
 
 june is the highest^
 
@@ -148,7 +135,7 @@ day_analysis$month_year<-paste(day_analysis$month,day_analysis$year,sep = " ")
 ggplot(day_analysis,aes(month_year,n))+coord_polar()+ geom_col(fill = "#5b59d6")
 ```
 
-![](Figs/unnamed-chunk-14-1.png)<!-- -->
+![](Figs/unnamed-chunk-12-1.png)<!-- -->
 
 march 2020 is the highest^
 
@@ -163,7 +150,7 @@ day_analysis<-subset(day_analysis,m<=6)
 ggplot(day_analysis,aes(n,month))+geom_bar(stat = "identity")+facet_grid(~year)
 ```
 
-![](Figs/unnamed-chunk-15-1.png)<!-- -->
+![](Figs/unnamed-chunk-13-1.png)<!-- -->
 
 we see that their is very high consumption in the year 2020 compared to
 the other years. one of the reasons could be the spread of the COVID-19
